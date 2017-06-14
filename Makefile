@@ -26,3 +26,10 @@ dbmgm.o:	acarsserv.h
 
 clean:
 	@\rm -f *.o acarsdec acarsserv
+
+install:
+	cp acarsdec /usr/local/bin
+	cp acarsdec.service /lib/systemd/system
+	sudo systemctl enable acarsdec
+	sudo groupadd acarsdec
+	sudo useradd acarsdec -g acarsdec -s /usr/bin/nologin
