@@ -23,6 +23,10 @@
 #define MAXNBCHANNELS 8
 #define INTRATE 12500
 
+#ifdef WITH_RTL
+	#define DEFAULT_GAIN_RTL 1000
+#endif
+
 typedef float sample_t;
 
 typedef struct mskblk_s {

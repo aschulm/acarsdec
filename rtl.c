@@ -199,10 +199,17 @@ int initRtl(char **argv, int optind)
 		return r;
 	}
 
-	rtlsdr_set_tuner_gain_mode(dev, 1);
-	r = rtlsdr_set_tuner_gain(dev, nearest_gain(gain));
-	if (r < 0)
-		fprintf(stderr, "WARNING: Failed to set gain.\n");
+	if (gain == DEFAULT_GAIN_RTL) {
+		// no gain specified, set gain automatically
+		rtlsdr_set_tuner_gain_mode(dev, 0);
+	}
+	else {
+		// gain specified, set gain manually
+		rtlsdr_set_tuner_gain_mode(dev, 1);
+		r = rtlsdr_set_tuner_gain(dev, nearest_gain(gain));
+		if (r < 0)
+			fprintf(stderr, "WARNING: Failed to set gain.\n");
+	}
 
 	if (ppm != 0) {
 		r = rtlsdr_set_freq_correction(dev, ppm);

@@ -37,7 +37,7 @@ int airflt = 0;
 int mdly=600;
 
 #ifdef WITH_RTL
-int gain = 1000;
+int gain = DEFAULT_GAIN_RTL;
 int ppm = 0;
 #endif
 #ifdef WITH_AIR
