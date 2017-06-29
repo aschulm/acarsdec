@@ -141,7 +141,7 @@ int initAirspy(char **argv, int optind)
 		return -1;
 	}
 
-	result = airspy_set_vga_gain(device, gain);
+	result = airspy_set_vga_gain(device, 15);
 	if( result != AIRSPY_SUCCESS ) {
 		fprintf(stderr,"airspy_set_vga_gain() failed: %s (%d)\n", airspy_error_name(result), result);
 	}
