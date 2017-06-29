@@ -29,7 +29,7 @@
 #include "acarsdec.h"
 
 //#define AIRMULT 1600
-#define AIRMULT 400
+#define AIRMULT 480
 #define AIRINRATE (INTRATE*AIRMULT)
 
 static struct airspy_device* device = NULL;
